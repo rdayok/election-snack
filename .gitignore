@@ -54,3 +54,4 @@ build/
 /src/main/resources/keys.env
 >>>>>>> 8ffa6bf (updated my git ignored file)
 .project
+env.properties
