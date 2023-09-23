@@ -5,8 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -16,11 +18,19 @@ import java.time.LocalDate;
 public class Candidate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @ManyToOne
+    private Long Id;
+    @OneToOne
     @JoinColumn(name = "candidateVoterId")
     private Voter voterId;
-    private Long electionId;
-    private String partyId;
-    private final LocalDate registrationDate = LocalDate.now();
+    @OneToOne
+    @JoinColumn(name = "electionId")
+    private Election electionId;
+    @OneToOne
+    @JoinColumn(name = "partyId")
+    private Party partyId;
+    @Transient
+    private Long numberOfVotes;
+    @CreatedDate
+    private final LocalDateTime registrationDate = LocalDateTime.now();
+
 }

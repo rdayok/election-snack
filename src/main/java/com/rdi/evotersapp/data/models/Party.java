@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -14,5 +15,7 @@ public class Party {
     private String partyName;
     @Id
     private String partyAcronym;
-    private LocalDate partyRegistrationDate = LocalDate.now();
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Candidate> candidates;
+    private final LocalDate partyRegistrationDate = LocalDate.now();
 }
