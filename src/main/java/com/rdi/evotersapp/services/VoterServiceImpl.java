@@ -4,16 +4,18 @@ import com.rdi.evotersapp.data.models.Voter;
 import com.rdi.evotersapp.data.repositories.VoterRepository;
 import com.rdi.evotersapp.dtos.requests.VoterRegistrationRequest;
 import com.rdi.evotersapp.dtos.responses.VoterRegistrationResponse;
+import com.rdi.evotersapp.utils.Mapper;
 import org.springframework.stereotype.Service;
 
-import static com.rdi.evotersapp.utils.Mapper.mapper;
+
+import static com.rdi.evotersapp.utils.Mapper.map;
 
 @Service
-public class VoterServiceImpl implements VoterServiceInterface{
+public class VoterServiceImpl implements VoterService {
 
 
     private final VoterRepository voterRepository;
-    private Voter voter = new Voter();
+
 
     public VoterServiceImpl(VoterRepository voterRepository) {
         this.voterRepository = voterRepository;
@@ -21,8 +23,8 @@ public class VoterServiceImpl implements VoterServiceInterface{
 
     @Override
     public VoterRegistrationResponse registerVoter(VoterRegistrationRequest voterRegistrationRequest) {
-        mapper(voter, voterRegistrationRequest);
+        Voter voter = Mapper.map(voterRegistrationRequest);
         Voter savedVoter = voterRepository.save(voter);
-        return mapper(savedVoter);
+        return map(savedVoter);
     }
 }

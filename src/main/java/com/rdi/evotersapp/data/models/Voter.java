@@ -11,6 +11,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Table(name = "VOTER")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Voter {
@@ -25,9 +26,11 @@ public class Voter {
     private State state;
     private String localGovernment;
     private String district;
+    private String email;
+    private String password;
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "voteId")
     public List<Vote> votes;
     @CreatedDate
-    private LocalDateTime voterRegistrationDate = LocalDateTime.now();
+    private LocalDateTime voterRegistrationDate;
 }

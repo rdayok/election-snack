@@ -16,6 +16,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "ELECTION")
 public class Election {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,5 +28,5 @@ public class Election {
     private List<Party> registeredParties;
     private Boolean isActive;
     @CreatedDate
-    private final LocalDateTime electionDate = LocalDateTime.now();
+    private LocalDateTime electionDate;
 }

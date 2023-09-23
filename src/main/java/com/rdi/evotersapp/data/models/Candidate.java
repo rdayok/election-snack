@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "CANDIDATE")
 public class Candidate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,9 +29,6 @@ public class Candidate {
     @OneToOne
     @JoinColumn(name = "partyId")
     private Party partyId;
-    @Transient
-    private Long numberOfVotes;
     @CreatedDate
-    private final LocalDateTime registrationDate = LocalDateTime.now();
-
+    private LocalDateTime registrationDate;
 }

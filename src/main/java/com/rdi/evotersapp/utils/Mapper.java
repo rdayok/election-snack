@@ -1,35 +1,37 @@
 package com.rdi.evotersapp.utils;
 
+import com.rdi.evotersapp.data.models.Admin;
 import com.rdi.evotersapp.data.models.Voter;
+import com.rdi.evotersapp.dtos.requests.AdminRegistrationRequest;
 import com.rdi.evotersapp.dtos.requests.VoterRegistrationRequest;
+import com.rdi.evotersapp.dtos.responses.AdminRegistrationResponse;
 import com.rdi.evotersapp.dtos.responses.VoterRegistrationResponse;
+import org.modelmapper.ModelMapper;
+
+import java.time.LocalDateTime;
 
 public class Mapper {
 
-    private static VoterRegistrationResponse voterRegistrationResponse = new VoterRegistrationResponse();
+    private static final ModelMapper modelMapper = new ModelMapper();
 
-    public static void mapper(Voter voter, VoterRegistrationRequest voterRegistrationRequest) {
-        voter.setId(voterRegistrationRequest.getId());
-        System.out.println(voterRegistrationRequest.getId());
-        voter.setFirstName(voterRegistrationRequest.getFirstName());
-        voter.setLastName(voterRegistrationRequest.getLastName());
-        voter.setDateOfBirth(voterRegistrationRequest.getDateOfBirth());
-        voter.setGender(voterRegistrationRequest.getGender());
-        voter.setState(voterRegistrationRequest.getState());
-        voter.setLocalGovernment(voterRegistrationRequest.getLocalGovernment());
-        voter.setDistrict(voterRegistrationRequest.getDistrict());
+
+    public static Admin map(AdminRegistrationRequest registrationRequest){
+        Admin admin = modelMapper.map(registrationRequest, Admin.class);
+        admin.setAdminRegistrationDate(LocalDateTime.now());
+        return admin;        
     }
 
-    public static VoterRegistrationResponse mapper(Voter savedVoter) {
-        voterRegistrationResponse.setId(savedVoter.getId());
-        voterRegistrationResponse.setFirstName(savedVoter.getFirstName());
-        voterRegistrationResponse.setLastName(savedVoter.getLastName());
-        voterRegistrationResponse.setDateOfBirth(savedVoter.getDateOfBirth());
-        voterRegistrationResponse.setGender(savedVoter.getGender());
-        voterRegistrationResponse.setState(savedVoter.getState());
-        voterRegistrationResponse.setLocalGovernment(savedVoter.getLocalGovernment());
-        voterRegistrationResponse.setDistrict(savedVoter.getDistrict());
-        voterRegistrationResponse.setVoterRegistrationDate(savedVoter.getVoterRegistrationDate());
-        return voterRegistrationResponse;
+    public static AdminRegistrationResponse map(Admin savedAdminn) {
+        return modelMapper.map(savedAdminn, AdminRegistrationResponse.class);
+    }
+
+    public static Voter map(VoterRegistrationRequest voterRegistrationRequest) {
+        Voter voter = modelMapper.map(voterRegistrationRequest, Voter.class);
+        voter.setVoterRegistrationDate(LocalDateTime.now());
+        return voter;
+    }
+
+    public static VoterRegistrationResponse map(Voter savedVoter) {
+        return modelMapper.map(savedVoter, VoterRegistrationResponse.class);
     }
 }

@@ -11,6 +11,7 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "VOTE")
 public class Vote {
     @Id
     private Long Id;
@@ -20,5 +21,5 @@ public class Vote {
     @ManyToOne
     @JoinColumn(name = "electionId")
     private Election electionId;
-    private final LocalDate dateOfVote = LocalDate.now();
+    private LocalDate dateOfVote;
 }

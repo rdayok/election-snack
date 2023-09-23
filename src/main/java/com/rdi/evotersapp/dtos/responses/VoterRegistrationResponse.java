@@ -15,11 +15,12 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonPropertyOrder({"id", "firstName", "lastName", "dateOfBirth", "gender", "state", "localGovernment", "district", "voterRegistratinDate"})
+@JsonPropertyOrder({"id", "firstName", "lastName", "email", "dateOfBirth", "gender", "state", "localGovernment", "district", "voterRegistratinDate"})
 public class VoterRegistrationResponse {
     private Long Id;
     private String firstName;
     private String lastName;
+    private String email;
     private String dateOfBirth;
     private String gender;
     private State state;
