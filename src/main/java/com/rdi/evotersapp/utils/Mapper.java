@@ -21,8 +21,8 @@ public class Mapper {
         return admin;        
     }
 
-    public static AdminRegistrationResponse map(Admin savedAdminn) {
-        return modelMapper.map(savedAdminn, AdminRegistrationResponse.class);
+    public static AdminRegistrationResponse map(Admin savedAdmin) {
+        return modelMapper.map(savedAdmin, AdminRegistrationResponse.class);
     }
 
     public static Voter map(VoterRegistrationRequest voterRegistrationRequest) {
