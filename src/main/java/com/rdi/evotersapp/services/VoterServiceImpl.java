@@ -27,4 +27,6 @@ public class VoterServiceImpl implements VoterService {
         Voter savedVoter = voterRepository.save(voter);
         return map(savedVoter);
     }
+
+
 }

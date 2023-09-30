@@ -1,10 +1,13 @@
 package com.rdi.evotersapp.utils;
 
 import com.rdi.evotersapp.data.models.Admin;
+import com.rdi.evotersapp.data.models.Election;
 import com.rdi.evotersapp.data.models.Voter;
 import com.rdi.evotersapp.dtos.requests.AdminRegistrationRequest;
+import com.rdi.evotersapp.dtos.requests.ElectionRequest;
 import com.rdi.evotersapp.dtos.requests.VoterRegistrationRequest;
 import com.rdi.evotersapp.dtos.responses.AdminRegistrationResponse;
+import com.rdi.evotersapp.dtos.responses.ElectionResponse;
 import com.rdi.evotersapp.dtos.responses.VoterRegistrationResponse;
 import org.modelmapper.ModelMapper;
 
@@ -33,5 +36,13 @@ public class Mapper {
 
     public static VoterRegistrationResponse map(Voter savedVoter) {
         return modelMapper.map(savedVoter, VoterRegistrationResponse.class);
+    }
+
+    public static Election map(ElectionRequest electionRequest) {
+        return modelMapper.map(electionRequest, Election.class);
+    }
+
+    public static ElectionResponse map(Election election) {
+        return modelMapper.map(election, ElectionResponse.class);
     }
 }
