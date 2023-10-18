@@ -1,4 +1,4 @@
-package com.rdi.evotersapp.data.models;
+package com.rdi.evotersapp.enums;
 
 public enum TypeOfElection {
     PRESIDENTIAL, GUBERNATORIAL
