@@ -4,6 +4,6 @@ import jakarta.persistence.Entity;
 
 
 public enum State {
-    PLATEAU, LAGOS, PORTHARCOURT, ABUJA
+    PLATEAU, LAGOS, ABUJA
 }
 
