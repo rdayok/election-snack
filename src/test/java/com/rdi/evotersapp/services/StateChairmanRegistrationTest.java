@@ -40,7 +40,7 @@ public class StateChairmanRegistrationTest {
         assertNotNull(stateChairmanRegistrationResponse);
     }
 
-    private static UserRegistrationRequest registerVoter() {
+    private UserRegistrationRequest registerVoter() {
         UserRegistrationRequest userRegistrationRequest = new UserRegistrationRequest();
         userRegistrationRequest.setFirstName("Darda");
         userRegistrationRequest.setLastName("Max");

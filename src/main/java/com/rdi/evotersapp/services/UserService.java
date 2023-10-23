@@ -8,6 +8,7 @@ import com.rdi.evotersapp.enums.Role;
 
 public interface UserService {
 
+
     public UserRegistrationResponse registerVoter(UserRegistrationRequest userRegistrationRequest);
 
 }

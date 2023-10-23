@@ -4,6 +4,7 @@ import com.rdi.evotersapp.data.repositories.StateChairmanRepository;
 import com.rdi.evotersapp.dtos.requests.StateChairmanRegistrationRequest;
 import com.rdi.evotersapp.dtos.responses.StateChairmanRegistrationResponse;
 import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,11 +12,11 @@ import org.springframework.stereotype.Service;
 public class EVoterStateChairmanService implements StateChairmanService{
 
     private final StateChairmanRepository stateChairmanRepository;
+    private final ModelMapper modelMapper;
     @Override
     public StateChairmanRegistrationResponse registerStateChairman(
             StateChairmanRegistrationRequest stateChairmanRegistrationRequest
     ) {
-
-        return null;
+        return userService.assignStateChairmanRole(stateChairmanRoleRequest);
     }
 }

@@ -2,7 +2,7 @@ package com.rdi.evotersapp.enums;
 
 public enum Role {
     SUPER_ADMIN("super_admin"),
-    ADMIN("admin"),
+    STATE_CHAIRMAN("state_chairman"),
     VOTER("voter");
 
     private final String value;

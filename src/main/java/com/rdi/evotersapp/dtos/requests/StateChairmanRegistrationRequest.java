@@ -10,6 +10,4 @@ import lombok.Setter;
 public class StateChairmanRegistrationRequest {
     private Long voterId;
     private State state;
-    private Role role;
-
 }

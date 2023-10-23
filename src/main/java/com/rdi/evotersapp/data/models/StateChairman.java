@@ -20,9 +20,12 @@ public class StateChairman {
     private User user;
     private State state;
     private LocalDateTime chairmanRegistrationDate;
+    private boolean isActive;
 
     @PrePersist
-    private void setChairmanRegistrationDate() {
+    private void stateChairmanRegistrationSetup() {
         this.chairmanRegistrationDate=LocalDateTime.now();
+        this.isActive = true;
     }
+
 }
